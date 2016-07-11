@@ -18,7 +18,7 @@ gulp.task('dist',function(){
   return [jsMin,loadingMin,cssMin];
 });
 
-gulp.task('build',['dist'],function(){
+gulp.task('build',function(){
   var jsFilter = filter('**/*.js',{restore: true});
   var cssFilter = filter('**/*.css',{restore: true});
   var revFilter = filter(['**/*','!**/index.html'],{restore: true});
@@ -37,3 +37,5 @@ gulp.task('build',['dist'],function(){
     .pipe(revReplace())
     .pipe(gulp.dest('demo'));
 });
+
+gulp.task('default',['build','dist']);
