@@ -8,12 +8,14 @@ var csso = require('gulp-csso');
 
 gulp.task('dist',function(){
   var jsMin = gulp.src('src/js/dataReport.js');
+  var loadingMin = gulp.src('src/js/loading.js');
   var cssMin = gulp.src('src/css/dataReport.css');
 
   jsMin.pipe(uglify()).pipe(gulp.dest('dist'));
+  loadingMin.pipe(uglify()).pipe(gulp.dest('dist'));
   cssMin.pipe(csso()).pipe(gulp.dest('dist'));
 
-  return [jsMin,cssMin];
+  return [jsMin,loadingMin,cssMin];
 });
 
 gulp.task('build',['dist'],function(){

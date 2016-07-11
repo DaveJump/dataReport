@@ -219,6 +219,7 @@
 /*loading动画*/
 
 .loading{
+  display: none;
   width: 60px;
   height: 60px;
   position: absolute;

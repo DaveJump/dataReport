@@ -9,6 +9,15 @@ a fullpage plugin for simple data statistical report based on jquery and fullpag
 <body>
   ...
   <script src="js/dataReport.js"></script>
+  
+  <!-- if you use loading script -->
+  <script src="js/loading.js"></script>
+  <div class="loading">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+    <div id="rate" class="rate">0%</div>
+  </div>
+  
   <script>
     var dataReport = new DataReport();
   </script>
@@ -36,6 +45,13 @@ dataReport.addPage().addComponent(componentName[string],config[object]);
   ...
 });
 ```  
+* loader()  
+```
+dataReport.addPage().addComponent().loader([imagesUrl optional]);
+//at the end,load the pages,this method is required
+//[imagesUrl optional],if you use loading script,you must add your preload images url.
+```
+  
 ### config  
 
 * `text[string]`  
@@ -74,7 +90,7 @@ dataReport.addPage().addComponent(componentName[string],config[object]);
 ### A complete demo  
 ```
 dataReport
-.addPage()
+.addPage('face','','url(imgs/face.png) center no-repeat')
   .addComponent('caption',{text: 'cation text'})
   .addComponent('msg',{
     text: 'city',
@@ -126,6 +142,7 @@ dataReport
   .addComponent(...)
   .addComponent(...)
 ...
+.loader(['imgs/face.png'])
 ```
   
 
